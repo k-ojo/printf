@@ -13,6 +13,7 @@ int _putchar(char c)
 {
 	return (write(1, &c, 1));
 }
-void print_int(int n);
-void _pow(int base, int index);
+int print_int(int n);
+int _pow(int base, int index);
+int print_string(char *str);
 #endif

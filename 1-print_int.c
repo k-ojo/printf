@@ -26,7 +26,7 @@ int _pow(int base, int index)
  *
  * Return: Nothing
  */
-void print_int(int n)
+int print_int(int n)
 {
 	unsigned int i = 0;
 	int dummy, base;
@@ -52,4 +52,5 @@ void print_int(int n)
 		base /= 10;
 	}
 	_putchar(n + '0');
+	return (i + 1);
 }
