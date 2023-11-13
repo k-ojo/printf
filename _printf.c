@@ -12,7 +12,6 @@ int _printf(char *format, ...)
 {
 	va_list ap;
 	unsigned int i = 0, count = 0;
-	char *str;
 
 	va_start(ap, format);
 	while (format[i] != '\0')
@@ -41,6 +40,11 @@ int _printf(char *format, ...)
 			}
 		}
 
+		else if (format[i] == '\\')
+		{
+			put_special(format[i + 1]);
+			count++;
+		}
 		else
 		{
 			_putchar(format[i]);
