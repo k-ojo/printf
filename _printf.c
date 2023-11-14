@@ -32,6 +32,8 @@ int print_format(char c, va_list ap, unsigned int *i)
 			break;
 		case 's':
 			str = va_arg(ap, char *);
+			if (!str)
+				str = "(null)";
 			count += print_string(str);
 			*i += 1;
 			break;
