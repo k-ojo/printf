@@ -33,6 +33,15 @@ int print_format(char c, va_list ap, unsigned int *i)
 			count += print_string(va_arg(ap, char *));
 			*i += 1;
 			break;
+		case '%':
+			_putchar('%');
+			count++;
+			*i += 1;
+			break;
+		default:
+			_putchar('%');
+			count++;
+			i += 1;
 	}
 	return (count);
 }
