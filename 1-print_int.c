@@ -45,7 +45,7 @@ int print_int(int n)
 	}
 	base = _pow(10, i);
 
-	while (!(base <= 1))
+	while (base > 0)
 	{
 		_putchar((n / base) + '0');
 		n = n % base;
