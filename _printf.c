@@ -12,6 +12,7 @@
  */
 int print_format(char c, va_list ap, unsigned int *i)
 {
+	char *str;
 	int count = 0;
 
 	switch (c)
@@ -30,7 +31,8 @@ int print_format(char c, va_list ap, unsigned int *i)
 			count++;
 			break;
 		case 's':
-			count += print_string(va_arg(ap, char *));
+			str = va_arg(ap, char *);
+			count += print_string(str);
 			*i += 1;
 			break;
 		case '%':
