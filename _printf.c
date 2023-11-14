@@ -22,7 +22,7 @@ int print_format(char c, va_list ap, unsigned int *i)
 			*i += 1;
 			break;
 		case 'd':
-			count += print_int((va_arg(ap, int)));
+			count += print_dec((va_arg(ap, int)));
 			*i += 1;
 			break;
 		case 'c':

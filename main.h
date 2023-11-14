@@ -3,6 +3,7 @@
 #include <stdarg.h>
 #include <unistd.h>
 
+int print_dec(int n);
 int print_format(char c, va_list ap, unsigned int *i);
 int _putchar(char c);
 int _printf(const char *format, ...);

@@ -1,56 +1,88 @@
 #include "main.h"
-
 /**
- * _pow- computes powers of numbers
- *
- * @base: base
- * @index: index
- *
- * Return: base to the power index
- */
-int _pow(int base, int index)
-{
-	if (index < 0)
-		return (-1);
-	if (index == 0)
-	{
-		return (1);
-	}
-	return (base * _pow(base, index - 1));
-}
-
-/**
- * print_int- prints integer values (both +ve and -ve)
- *
- * @n: input integer
- *
- * Return: Nothing
+ * printf_int - prints integer
+ * @args: argument to print
+ * Return: number of characters printed
  */
 int print_int(int n)
 {
-	unsigned int i = 0;
-	int dummy, base;
+	int num, last = n % 10, digit, exp = 1;
+	int  i = 1;
 
-	if (n < 0)
+	n = n / 10;
+	num = n;
+
+	if (last < 0)
 	{
 		_putchar('-');
+		num = -num;
 		n = -n;
-	}
-	dummy = n;
-
-	while (dummy / 10 != 0)
-	{
-		dummy = dummy / 10;
+		last = -last;
 		i++;
 	}
-	base = _pow(10, i);
-
-	while (base > 1)
+	if (num > 0)
 	{
-		_putchar((n / base) + '0');
-		n = n % base;
-		base /= 10;
+		while (num / 10 != 0)
+		{
+			exp = exp * 10;
+			num = num / 10;
+		}
+		num = n;
+		while (exp > 0)
+		{
+			digit = num / exp;
+			_putchar(digit + '0');
+			num = num - (digit * exp);
+			exp = exp / 10;
+			i++;
+		}
 	}
-	_putchar(n + '0');
-	return (i + 1);
+	_putchar(last + '0');
+
+	return (i);
+}
+
+/**
+ * printf_dec - prints decimal
+ * @args: argument to print
+ * Return: number of characters printed
+ */
+
+int print_dec(int n)
+{
+	int num, last = n % 10, digit;
+	int  i = 1;
+	int exp = 1;
+
+	n = n / 10;
+	num = n;
+
+	if (last < 0)
+	{
+		_putchar('-');
+		num = -num;
+		n = -n;
+		last = -last;
+		i++;
+	}
+	if (num > 0)
+	{
+		while (num / 10 != 0)
+		{
+			exp = exp * 10;
+			num = num / 10;
+		}
+		num = n;
+		while (exp > 0)
+		{
+			digit = num / exp;
+			_putchar(digit + '0');
+			num = num - (digit * exp);
+			exp = exp / 10;
+			i++;
+		}
+	}
+	_putchar(last + '0');
+
+	return (i);
 }
