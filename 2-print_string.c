@@ -34,6 +34,7 @@ void put_special(char c)
 			break;
 		case '\'':
 			_putchar('\'');
+			break;
 		case '%':
 			_putchar('%');
 			break;
