@@ -1,6 +1,42 @@
 #include "main.h"
 #include <stdarg.h>
 
+
+/**
+ * print_format- prints formatted output
+ * @c: input char
+ * @ap: variadic list
+ * @i: iterator
+ *
+ * Return: number printed output
+ */
+int print_format(char c, va_list ap, unsigned int *i)
+{
+	int count = 0;
+
+	switch (c)
+	{
+		case 'i':
+			count += print_int((va_arg(ap, int)));
+			*i += 1;
+			break;
+		case 'd':
+			count += print_int((va_arg(ap, int)));
+			*i += 1;
+			break;
+		case 'c':
+			_putchar((char)(va_arg(ap, int)));
+			*i += 1;
+			count++;
+			break;
+		case 's':
+			count += print_string(va_arg(ap, char *));
+			*i += 1;
+			break;
+	}
+	return (count);
+}
+
 /**
  * _printf- custom printf function
  *
@@ -13,31 +49,14 @@ int _printf(const char *format, ...)
 	va_list ap;
 	unsigned int i = 0, count = 0;
 
+	if (!format || (format[0] == '%' && format[1] == '\0'))
+		return (-1);
 	va_start(ap, format);
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
 		{
-			switch (format[i + 1])
-			{
-				case 'i':
-					count += print_int((int)(va_arg(ap, int)));
-					i++;
-					break;
-				case 'd':
-					count += print_int((int)(va_arg(ap, int)));
-					i++;
-					break;
-				case 'c':
-					_putchar((char)(va_arg(ap, int)));
-					i++;
-					count++;
-					break;
-				case 's':
-					count += print_string(va_arg(ap, char *));
-					i++;
-					break;
-			}
+			count += print_format((format[i + 1]), ap, &i);
 		}
 
 		else if (format[i] == '\\')
