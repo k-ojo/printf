@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * printf_int - prints integer
+ * print_int - prints integer
  * @args: argument to print
  * Return: number of characters printed
  */
@@ -43,7 +43,7 @@ int print_int(int n)
 }
 
 /**
- * printf_dec - prints decimal
+ * print_dec - prints decimal
  * @args: argument to print
  * Return: number of characters printed
  */
