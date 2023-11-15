@@ -10,7 +10,7 @@
  * @j: iterator
  * Return: count
  */
-int print_others(char c, va_list ap, int *j)
+int print_others(char c, va_list ap, unsigned int *j)
 {
 	int i = 0, count = 0;
 
