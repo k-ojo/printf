@@ -9,5 +9,10 @@
 int print_address(va_list ap)
 {
 	int *ptr = va_arg(ap, void *);
+
+	if (ptr == 0)
+	{
+		return (_printf("(null)"));
+	}
 	return (_printf("0x%x", ptr));
 }
