@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * print_int - prints integer
- * @args: argument to print
+ * @n: integer to be printed
  * Return: number of characters printed
  */
 int print_int(int n)
@@ -43,8 +43,8 @@ int print_int(int n)
 }
 
 /**
- * print_dec - prints decimal
- * @args: argument to print
+ * print_dec - prints decimal integer
+ * @n: decimal integer to be printed
  * Return: number of characters printed
  */
 
