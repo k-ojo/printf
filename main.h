@@ -2,8 +2,21 @@
 #define MAIN_H
 #include <stdarg.h>
 #include <unistd.h>
+#include <stdlib.h>
 
+typedef struct format
+{
+	char *id;
+	int (*func)();
+} func_ptr;
+
+int print_HEX(va_list ap);
+int print_bin(va_list ap);
+int print_others(char c, va_list ap);
 int print_dec(int n);
+int print_hex(va_list ap);
+int print_oct(va_list ap);
+int print_unsigned(va_list ap);
 int print_format(char c, va_list ap, unsigned int *i);
 int _putchar(char c);
 int _printf(const char *format, ...);

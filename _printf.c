@@ -3,6 +3,37 @@
 
 
 /**
+ * print_others- print other formatters
+ *
+ * @ap:input argument
+ *
+ * Return: count
+ */
+int print_others(char c, va_list ap)
+{
+	int i = 0, count = 0;
+	
+	func_ptr arr[] = {
+		{"%x", print_hex}, {"%b", print_bin},
+		{"%o", print_oct}, {"%u", print_unsigned},
+		{"%X", print_HEX},
+		{0,0}
+	};
+
+	while (arr[i].id && arr[i].func)
+	{
+		if (arr[i].id[1] == c)
+			count += arr[i].func(ap);
+		i++;
+	}
+	if (count == 0)
+	{
+		_putchar('%');
+		count++;
+	}
+	return (count);
+}
+/**
  * print_format- prints formatted output
  * @c: input char
  * @ap: variadic list
@@ -43,9 +74,8 @@ int print_format(char c, va_list ap, unsigned int *i)
 			*i += 1;
 			break;
 		default:
-			_putchar('%');
-			count++;
-			i += 1;
+			count += print_others(c, ap);
+			break;
 	}
 	return (count);
 }
