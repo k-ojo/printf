@@ -12,12 +12,12 @@
 int print_others(char c, va_list ap)
 {
 	int i = 0, count = 0;
-	
+
 	func_ptr arr[] = {
 		{"%x", print_hex}, {"%b", print_bin},
 		{"%o", print_oct}, {"%u", print_unsigned},
 		{"%X", print_HEX},
-		{0,0}
+		{0, 0}
 	};
 
 	while (arr[i].id && arr[i].func)

@@ -33,21 +33,7 @@ int print_HEX(va_list ap)
 	}
 	i--;
 
-	for (; i >= 0; i--)
-	{
-		int j;
-		rem = *(ptr + i);
-		for (j = 10; j < 16; j++)
-		{
-			if (rem == j)
-			{
-				rem = 17 + (j - 10);
-				break;
-			}
-		}
-
-		_putchar(rem  + '0');
-	}
+		print_out(ptr, 17, i);
 	free(ptr);
 	return (size);
 }
