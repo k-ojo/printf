@@ -6,10 +6,11 @@
  * print_others- print other formatters
  *
  * @ap:input argument
- *
+ * @c: input character
+ * @j: iterator
  * Return: count
  */
-int print_others(char c, va_list ap)
+int print_others(char c, va_list ap, int *j)
 {
 	int i = 0, count = 0;
 
@@ -23,7 +24,11 @@ int print_others(char c, va_list ap)
 	while (arr[i].id && arr[i].func)
 	{
 		if (arr[i].id[1] == c)
+		{
 			count += arr[i].func(ap);
+			*j += 1;
+			break;
+		}
 		i++;
 	}
 	if (count == 0)
@@ -74,7 +79,7 @@ int print_format(char c, va_list ap, unsigned int *i)
 			*i += 1;
 			break;
 		default:
-			count += print_others(c, ap);
+			count += print_others(c, ap, i);
 			break;
 	}
 	return (count);

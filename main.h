@@ -13,7 +13,7 @@ typedef struct format
 int print_out(unsigned char *ptr, const int n, int i);
 int print_HEX(va_list ap);
 int print_bin(va_list ap);
-int print_others(char c, va_list ap);
+int print_others(char c, va_list ap, int *j);
 int print_dec(int n);
 int print_hex(va_list ap);
 int print_oct(va_list ap);
