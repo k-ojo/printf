@@ -15,7 +15,7 @@ int print_bin(va_list ap)
 
 	q = n;
 
-	while (q > 0)
+	while (q / 16 > 0)
 	{
 		size++;
 		q /= 2;
@@ -23,11 +23,10 @@ int print_bin(va_list ap)
 	do {
 		ptr = malloc(sizeof(unsigned char) * size);
 	} while (!ptr);
-	while (n > 0)
+	for (i = 0; i <= size; i++)
 	{
 		rem = n % 2;
 		*(ptr + i) = rem;
-		i++;
 	}
 	i--;
 
@@ -36,5 +35,5 @@ int print_bin(va_list ap)
 		_putchar(*(ptr + i) + '0');
 	}
 	free(ptr);
-	return (size);
+	return (size + 1);
 }

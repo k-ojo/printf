@@ -46,25 +46,25 @@ int print_hex(va_list ap)
 	unsigned char rem;
 
 	q = n;
+	rem = q % 16;
 
-	while (q > 0)
+	while (q / 16 > 0)
 	{
 		size++;
 		q /= 16;
 	}
 	do {
-		ptr = malloc(sizeof(unsigned char) * size);
+		ptr = malloc(sizeof(unsigned char) * (size + 1));
 	} while (!ptr);
-	while (n > 0)
+	for (i = 0; i <= size; i++)
 	{
 		rem = n % 16;
-		*(ptr + i) = rem;
 		n /= 16;
-		i++;
+		*(ptr + i) = rem;
 	}
 	i--;
 
 	print_out(ptr, 49, i);
 	free(ptr);
-	return (size);
+	return (size + 1);
 }
