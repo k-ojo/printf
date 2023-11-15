@@ -27,6 +27,7 @@ int print_out(unsigned char *ptr, const int n, int i)
 
 		_putchar(rem  + '0');
 	}
+	return (0);
 }
 
 
