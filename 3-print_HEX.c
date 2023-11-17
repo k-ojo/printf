@@ -1,46 +1,37 @@
 #include "main.h"
 
-
 /**
- * print_HEX- prints hexadecimal number
- *
- * @ap: input ap
- *
- * Return: number of printed char
+ * print_HEX - prints an hexgecimal number.
+ * @val: arguments.
+ * Return: counter.
  */
-int print_HEX(va_list ap)
+int print_HEX(va_list val)
 {
-	unsigned long q, n;
-	void *ptr1 = va_arg(ap, void*);
-	int size = 0, i = 0;
-	unsigned char *ptr;
-	unsigned char rem;
+	int i;
+	int *array;
+	int counter = 0;
+	unsigned int num = va_arg(val, unsigned int);
+	unsigned int temp = num;
 
-	n = (unsigned long int)ptr1;
-	q = n;
+	while (num / 16 != 0)
+	{
+		num /= 16;
+		counter++;
+	}
+	counter++;
+	array = malloc(counter * sizeof(int));
 
-	while (q / 16 != 0)
+	for (i = 0; i < counter; i++)
 	{
-		size++;
-		q /= 16;
+		array[i] = temp % 16;
+		temp /= 16;
 	}
-	size++;
-
-	ptr = malloc(sizeof(unsigned char) * (size));
-	if (!ptr)
-		return (-1);
-	for (i = 0; i < size; i++)
+	for (i = counter - 1; i >= 0; i--)
 	{
-		rem = n % 16;
-		n /= 16;
-		*(ptr + i) = rem;
+		if (array[i] > 9)
+			array[i] = array[i] + 7;
+		_putchar(array[i] + '0');
 	}
-	for (i = size - 1; i >= 0; i--)
-	{
-		if (*(ptr + i) > 9)
-			*(ptr + i) += 7;
-		_putchar(*(ptr + i) + '0');
-	}
-	free(ptr);
-	return (size);
+	free(array);
+	return (counter);
 }
