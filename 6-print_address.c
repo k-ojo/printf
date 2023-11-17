@@ -8,11 +8,14 @@
  */
 int print_address(va_list ap)
 {
-	int *ptr = va_arg(ap, void *);
+	unsigned long long int addr;
+	void *ptr = va_arg(ap, void *);
 
 	if (ptr == 0)
 	{
 		return (_printf("(null)"));
 	}
-	return (_printf("0x%x", ptr));
+	addr = (unsigned long long int)ptr;
+
+	return (_printf("0x%x", addr));
 }

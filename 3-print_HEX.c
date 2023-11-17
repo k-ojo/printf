@@ -9,20 +9,21 @@
  */
 int print_HEX(va_list ap)
 {
-	unsigned int q, n = va_arg(ap, unsigned int);
+	unsigned long int q, n;
+	void *ptr1 = va_arg(ap, void*);
 	int size = 0, i = 0;
 	unsigned char *ptr;
 	unsigned char rem;
 
+	n = (unsigned long int)ptr1;
 	q = n;
 	while (q / 16 > 0)
 	{
 		size++;
 		q /= 16;
 	}
-	do {
-		ptr = malloc(sizeof(unsigned char) * size);
-	} while (!ptr);
+
+	ptr = malloc(sizeof(unsigned char) * (size));
 	for (i = 0; i <= size; i++)
 	{
 		rem = n % 16;

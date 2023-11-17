@@ -10,7 +10,7 @@
  */
 int print_out(unsigned char *ptr, const int n, int i)
 {
-	unsigned char j, rem = 0;
+	unsigned int j, rem = 0;
 
 	for (; i >= 0; i--)
 	{
@@ -40,22 +40,22 @@ int print_out(unsigned char *ptr, const int n, int i)
  */
 int print_hex(va_list ap)
 {
-	unsigned int q, n = va_arg(ap, unsigned int);
+	unsigned long q, n;
+	void *ptr1 = va_arg(ap, void*);
 	int size = 0, i = 0;
 	unsigned char *ptr;
 	unsigned char rem;
 
+	n = (unsigned long int)ptr1;
 	q = n;
-	rem = q % 16;
 
 	while (q / 16 > 0)
 	{
 		size++;
 		q /= 16;
 	}
-	do {
-		ptr = malloc(sizeof(unsigned char) * (size + 1));
-	} while (!ptr);
+
+	ptr = malloc(sizeof(unsigned char) * (size));
 	for (i = 0; i <= size; i++)
 	{
 		rem = n % 16;
