@@ -9,7 +9,7 @@
  */
 int print_hex(va_list ap)
 {
-	unsigned long q, n = va_arg(ap, unsigned long int);
+	unsigned long int q, n = va_arg(ap, unsigned long int);
 	int size = 0, i = 0;
 	unsigned char *ptr;
 	unsigned char rem;
