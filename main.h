@@ -10,6 +10,7 @@ typedef struct format
 	int (*func)();
 } func_ptr;
 
+int print_hex1(unsigned long int n);
 int print_address(va_list ap);
 int print_out(unsigned char *ptr, const int n, int i);
 int print_HEX(va_list ap);
