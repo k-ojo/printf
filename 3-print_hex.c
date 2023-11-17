@@ -1,35 +1,5 @@
 #include "main.h"
 
-/**
- * print_out- prints to out
- *
- * @ptr: input array
- * @n: offset
- * @i: size
- * Return: count
- */
-int print_out(unsigned char *ptr, const int n, int i)
-{
-	unsigned char j, rem = 0;
-
-	for (; i >= 0; i--)
-	{
-
-		rem = *(ptr + i);
-		for (j = 10; j < 16; j++)
-		{
-			if (rem == j)
-			{
-				rem = n + (j - 10);
-				break;
-			}
-		}
-
-		_putchar(rem  + '0');
-	}
-	return (0);
-}
-
 
 /**
  * print_hex- prints binary number
@@ -49,7 +19,7 @@ int print_hex(va_list ap)
 	n = (unsigned long int)ptr1;
 	q = n;
 
-	while (q / 16 > 0)
+	while (q / 16 != 0)
 	{
 		size++;
 		q /= 16;
@@ -63,9 +33,12 @@ int print_hex(va_list ap)
 		n /= 16;
 		*(ptr + i) = rem;
 	}
-	i--;
-
-	print_out(ptr, 49, i);
+	for (i = size - 1; i >= 0; i--)
+	{
+		if (*(ptr + i) > 9)
+			*(ptr + i) += 39;
+		_putchar(*(ptr + i) + '0');
+	}
 	free(ptr);
 	return (size);
 }

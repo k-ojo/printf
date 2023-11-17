@@ -1,7 +1,8 @@
 #include "main.h"
 
+
 /**
- * print_HEX- prints hex number in capital
+ * print_HEX- prints hexadecimal number
  *
  * @ap: input ap
  *
@@ -9,7 +10,7 @@
  */
 int print_HEX(va_list ap)
 {
-	unsigned long int q, n;
+	unsigned long q, n;
 	void *ptr1 = va_arg(ap, void*);
 	int size = 0, i = 0;
 	unsigned char *ptr;
@@ -17,7 +18,8 @@ int print_HEX(va_list ap)
 
 	n = (unsigned long int)ptr1;
 	q = n;
-	while (q / 16 > 0)
+
+	while (q / 16 != 0)
 	{
 		size++;
 		q /= 16;
@@ -28,12 +30,15 @@ int print_HEX(va_list ap)
 	for (i = 0; i < size; i++)
 	{
 		rem = n % 16;
-		*(ptr + i) = rem;
 		n /= 16;
+		*(ptr + i) = rem;
 	}
-	i--;
-
-		print_out(ptr, 17, i);
+	for (i = size - 1; i >= 0; i--)
+	{
+		if (*(ptr + i) > 9)
+			*(ptr + i) += 7;
+		_putchar(*(ptr + i) + '0');
+	}
 	free(ptr);
 	return (size);
 }

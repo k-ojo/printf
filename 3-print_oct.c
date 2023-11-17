@@ -16,14 +16,13 @@ int print_oct(va_list ap)
 
 	q = n;
 
-	while (q / 16 > 0)
+	while (q / 8 != 0)
 	{
 		size++;
 		q /= 8;
 	}
-	do {
-		ptr = malloc(sizeof(unsigned char) * size);
-	} while (!ptr);
+
+	ptr = malloc(sizeof(unsigned char) * size);
 	for (i = 0; i <= size; i++)
 	{
 		rem = n % 8;
