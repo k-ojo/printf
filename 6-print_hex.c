@@ -9,7 +9,7 @@
  */
 int print_hex1(unsigned long int n)
 {
-	unsigned int long q;
+	unsigned int q;
 	int size = 0, i = 0;
 	unsigned char *ptr;
 	unsigned char rem;

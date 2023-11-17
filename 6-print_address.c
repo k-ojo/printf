@@ -17,5 +17,7 @@ int print_address(va_list ap)
 	}
 	addr = (unsigned long int)ptr;
 
-	return (_printf("0x") + print_hex1(addr));
+	_putchar('0');
+	_putchar('x');
+	return (2 + print_hex1(addr));
 }
