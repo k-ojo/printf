@@ -10,7 +10,7 @@
  */
 int print_out(unsigned char *ptr, const int n, int i)
 {
-	unsigned int j, rem = 0;
+	unsigned char j, rem = 0;
 
 	for (; i >= 0; i--)
 	{
