@@ -1,39 +1,34 @@
 #include "main.h"
-#include <stdlib.h>
 
 /**
- * print_bin - prints binary number
- * @ap: input ap
- * Return: number of printed characters
+ * print_bin - prints a binary number.
+ * @val: arguments.
+ * Return: 1.
  */
-int print_bin(va_list ap)
+int print_bin(va_list val)
 {
-	unsigned int q, n = va_arg(ap, unsigned int);
-	int size = 0, i = 0;
-	unsigned char *ptr;
-	unsigned char rem;
+	int flag = 0;
+	int cont = 0;
+	int i, a = 1, b;
+	unsigned int num = va_arg(val, unsigned int);
+	unsigned int p;
 
-	q = n;
-
-	while (q / 16 > 0)
+	for (i = 0; i < 32; i++)
 	{
-		size++;
-		q /= 2;
+		p = ((a << (31 - i)) & num);
+		if (p >> (31 - i))
+			flag = 1;
+		if (flag)
+		{
+			b = p >> (31 - i);
+			_putchar(b + 48);
+			cont++;
+		}
 	}
-	do {
-		ptr = malloc(sizeof(unsigned char) * size);
-	} while (!ptr);
-	for (i = 0; i <= size; i++)
+	if (cont == 0)
 	{
-		rem = n % 2;
-		*(ptr + i) = rem;
+		cont++;
+		_putchar('0');
 	}
-	i--;
-
-	for (; i >= 0; i--)
-	{
-		_putchar(*(ptr + i) + '0');
-	}
-	free(ptr);
-	return (size + 1);
+	return (cont);
 }
