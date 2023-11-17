@@ -13,7 +13,7 @@
 int print_others(char c, va_list ap, unsigned int *j)
 {
 	int i = 0, count = 0;
-
+i
 	func_ptr arr[] = {
 		{"%x", print_hex}, {"%b", print_bin},
 		{"%o", print_oct}, {"%u", print_unsigned},
