@@ -1,6 +1,5 @@
 #include "main.h"
 
-
 /**
  * print_hex- prints binary number
  *
@@ -10,13 +9,12 @@
  */
 int print_hex(va_list ap)
 {
-	unsigned long q, n;
-	void *ptr1 = va_arg(ap, void*);
+	unsigned long q, n = va_arg(ap, unsigned long int);
 	int size = 0, i = 0;
 	unsigned char *ptr;
 	unsigned char rem;
 
-	n = (unsigned long int)ptr1;
+	/*n = (unsigned long int)ptr1;*/
 	q = n;
 
 	while (q / 16 != 0)
