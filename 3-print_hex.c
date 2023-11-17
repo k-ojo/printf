@@ -54,9 +54,10 @@ int print_hex(va_list ap)
 		size++;
 		q /= 16;
 	}
+	size++;
 
 	ptr = malloc(sizeof(unsigned char) * (size));
-	for (i = 0; i <= size; i++)
+	for (i = 0; i < size; i++)
 	{
 		rem = n % 16;
 		n /= 16;
@@ -66,5 +67,5 @@ int print_hex(va_list ap)
 
 	print_out(ptr, 49, i);
 	free(ptr);
-	return (size + 1);
+	return (size);
 }
