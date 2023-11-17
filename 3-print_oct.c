@@ -23,6 +23,8 @@ int print_oct(va_list ap)
 	}
 
 	ptr = malloc(sizeof(unsigned char) * size);
+	if (!ptr)
+		return (-1);
 	for (i = 0; i <= size; i++)
 	{
 		rem = n % 8;
