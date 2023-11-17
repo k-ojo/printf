@@ -16,10 +16,10 @@ int print_oct(va_list ap)
 
 	q = n;
 
-	while (q / 9 != 0)
+	while (q / 8 != 0)
 	{
 		size++;
-		q /= 9;
+		q /= 8;
 	}
 
 	ptr = malloc(sizeof(unsigned char) * size);
@@ -27,9 +27,9 @@ int print_oct(va_list ap)
 		return (-1);
 	for (i = 0; i <= size; i++)
 	{
-		rem = n % 9;
+		rem = n % 8;
 		*(ptr + i) = rem;
-		n /= 9;
+		n /= 8;
 	}
 	i--;
 
