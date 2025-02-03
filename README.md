@@ -23,5 +23,5 @@ Before you begin, make sure you have the following tools installed:
 
    ```bash
    git clone https://github.com/your-username/custom-printf.git
-   cd custom-printf
+   cd printf
 
