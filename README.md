@@ -22,6 +22,6 @@ Before you begin, make sure you have the following tools installed:
 1. Clone or download the project repository.
 
    ```bash
-   git clone https://github.com/your-username/custom-printf.git
+   git clone https://github.com/k-ojo/printf.git
    cd printf
 
