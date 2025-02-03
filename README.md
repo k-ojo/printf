@@ -1,28 +1,27 @@
-PSEUDOCODE
+# Custom printf Implementation
 
-BEGIN
-        DECLARE format String variable(char *str)
-        SET loop (condition: character in string- str[i] is not NULL('\0')
-	SET up variadic input as var_in
-	IF str[i] = '%'
-	DECLARE count integer(int count)
-	SWITCH next character in str
-        	CASE 'i':
-			print_int(next in var_in)
-			INCREASE count by 1;
-        	CASE 'c':
-			print_char(next in var_in)
-			INCREASE cont by 1;
-		CASE 'f':
-			print_float(next in var_in)
-			INCREASE count by 1;
-		CASE '...':
-			print_...(next in var_in)
-			INCREASE count by ...;
-	Set i to i = count
-	IF str[i] = '\'
-		print_special_character
-	Else
-		print str[i]
-	END loop
-END program
+## Overview
+
+This project provides a custom implementation of the `printf` function in C, which mimics the functionality of the standard `printf`. It demonstrates custom string formatting, variable argument handling, and basic output manipulation. This implementation is designed for use on a Linux platform.
+
+## Features
+
+- Supports various format specifiers: `%d`, `%s`, `%c`, and more.
+- Handles variable arguments using `va_list` and `va_start`.
+- Allows for customizable behavior for formatting output.
+
+## Prerequisites
+
+Before you begin, make sure you have the following tools installed:
+
+- A Linux-based operating system (e.g., Ubuntu, Fedora, etc.)
+- GCC (GNU Compiler Collection) or any standard C compiler
+
+## Installation
+
+1. Clone or download the project repository.
+
+   ```bash
+   git clone https://github.com/your-username/custom-printf.git
+   cd custom-printf
+
